@@ -7,7 +7,7 @@ export default function ({ id, onClick, text, timestamp }) {
       block
       className="mb-2 p-3 text-left"
       onClick={() => onClick(id)}
-      variant="outline-primary"
+      variant="primary"
     >
       {text}
     </Button>

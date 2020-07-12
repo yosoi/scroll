@@ -9,8 +9,7 @@ function App() {
   const [children, setChildren] = useState([]);
   const [parentId, setParentId] = useState("");
 
-  const add = () => {
-    const text = "Hey Planet!";
+  const add = (text) => {
     Scroll.add(parentId, text, (data) => {
       console.log(data);
       next(data.parent_id);
@@ -27,7 +26,6 @@ function App() {
   const prev = () => {
     if (parentId === "ROOT") return;
     Scroll.prev(parentId, (data) => {
-      console.log(data);
       setChildren(data.clauses);
       setParentId(data.parent_id);
     });
@@ -38,17 +36,18 @@ function App() {
   }, []);
 
   return (
-    <Container>
-      <Row className="mt-3 text-center">
+    <Container className="pt-5 pl-5 pr-5 pb-5">
+      <Row className="mt-3 mb-3 text-right">
         <Col>
-          <h6>scroll</h6>
+          <h1>scroll</h1>
+          <p className="text-muted">A collaborative writing toy.</p>
         </Col>
       </Row>
       <Row>
         <Col>
           <ClauseContainer
             children={children}
-            onAdd={() => add()}
+            onAdd={(text) => add(text)}
             onPrev={() => prev()}
             onNext={(clauseId) => next(clauseId)}
             showBackButton={parentId !== "ROOT"}

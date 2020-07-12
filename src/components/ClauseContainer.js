@@ -1,6 +1,6 @@
-import PrevButton from "./PrevButton";
-import Clause from "./Clause";
 import AddButton from "./AddButton";
+import Clause from "./Clause";
+import PrevButton from "./PrevButton";
 import React from "react";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -16,9 +16,9 @@ export default function ({ children, onAdd, onPrev, onNext, showBackButton }) {
       />
     );
   });
+  clauses.push(<AddButton key="add" onClick={onAdd}></AddButton>);
   if (showBackButton) {
     clauses.push(<PrevButton key="prev" onClick={onPrev}></PrevButton>);
   }
-  clauses.push(<AddButton key="add" onClick={onAdd}></AddButton>);
   return <div>{clauses}</div>;
 }
