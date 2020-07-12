@@ -5,9 +5,9 @@ export default function ({ id, onClick, text, timestamp }) {
   return (
     <Button
       block
-      className="mb-2 p-3 text-left"
+      className="mb-4 p-3 text-left shadow rounded-0"
       onClick={() => onClick(id, text)}
-      variant="primary"
+      variant="light"
     >
       {text}
     </Button>

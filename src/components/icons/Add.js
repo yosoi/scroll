@@ -3,10 +3,10 @@ import React from "react";
 export default function () {
   return (
     <svg
-      width="1em"
-      height="1em"
+      width="3em"
+      height="3em"
       viewBox="0 0 16 16"
-      className="bi bi-plus"
+      className="bi bi-plus text-primary"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >

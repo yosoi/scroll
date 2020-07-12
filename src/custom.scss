@@ -1,0 +1,24 @@
+// FONTS
+@import url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+$grenze-gotisch: "Grenze Gotisch", cursive;
+$libre-baskerville: "Libre Baskerville", serif;
+
+// COLORS
+$space-cadet: #2b2d42;
+$middle-blue: #92dce5;
+$cultured: #f8f7f9;
+$corn: #f7ec59;
+$rose-pink: #ff66d8;
+
+// Override default variables before the import
+$body-bg: $cultured;
+$primary: $corn;
+$secondary: $rose-pink;
+$dark: $space-cadet;
+$light: #ffffff;
+$info: $middle-blue;
+$font-family-base: $libre-baskerville;
+$headings-font-family: $grenze-gotisch;
+$headings-color: $dark;
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";

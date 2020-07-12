@@ -39,17 +39,21 @@ function App() {
 
   return (
     <Container className="pt-5 pl-5 pr-5 pb-5">
-      <Row className="mt-3 mb-3 text-right">
+      <Row className="mt-3 mb-5 text-right">
         <Col>
           <h1>scroll</h1>
-          <p className="text-muted">A collaborative writing toy.</p>
+          <p className="text-muted font-italic">A collaborative writing toy.</p>
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Readout clauses={clauses}></Readout>
-        </Col>
-      </Row>
+      {clauses.length > 0 ? (
+        <Row className="mb-5">
+          <Col>
+            <Readout clauses={clauses}></Readout>
+          </Col>
+        </Row>
+      ) : (
+        ""
+      )}
       <Row>
         <Col>
           <ClauseContainer
