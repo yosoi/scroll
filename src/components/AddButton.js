@@ -1,6 +1,5 @@
 import Add from "./icons/Add";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import React from "react";
 
@@ -11,7 +10,7 @@ export default function ({ onClick }) {
         <Form.Control
           as="textarea"
           maxLength="300"
-          placeholder="Try another version."
+          placeholder="Add your own version..."
         ></Form.Control>
       </Form.Group>
       <Button

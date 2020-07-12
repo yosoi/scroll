@@ -2,7 +2,6 @@ import AddButton from "./AddButton";
 import Clause from "./Clause";
 import PrevButton from "./PrevButton";
 import React from "react";
-import Spinner from "react-bootstrap/Spinner";
 
 export default function ({ children, onAdd, onPrev, onNext, showBackButton }) {
   const clauses = children.map((data) => {

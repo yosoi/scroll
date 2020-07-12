@@ -2,16 +2,17 @@ import ClauseContainer from "./ClauseContainer";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import React, { useEffect, useState } from "react";
+import Readout from "./Readout";
 import Row from "react-bootstrap/Row";
 import * as Scroll from "../api/Scroll";
 
 function App() {
   const [children, setChildren] = useState([]);
+  const [clauses, setClauses] = useState([]);
   const [parentId, setParentId] = useState("");
 
   const add = (text) => {
     Scroll.add(parentId, text, (data) => {
-      console.log(data);
       next(data.parent_id);
     });
   };
@@ -26,6 +27,7 @@ function App() {
   const prev = () => {
     if (parentId === "ROOT") return;
     Scroll.prev(parentId, (data) => {
+      setClauses(clauses.slice(0, -1));
       setChildren(data.clauses);
       setParentId(data.parent_id);
     });
@@ -45,11 +47,19 @@ function App() {
       </Row>
       <Row>
         <Col>
+          <Readout clauses={clauses}></Readout>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           <ClauseContainer
             children={children}
             onAdd={(text) => add(text)}
             onPrev={() => prev()}
-            onNext={(clauseId) => next(clauseId)}
+            onNext={(clauseId, text) => {
+              setClauses(clauses.concat([text]));
+              next(clauseId);
+            }}
             showBackButton={parentId !== "ROOT"}
           />
         </Col>
